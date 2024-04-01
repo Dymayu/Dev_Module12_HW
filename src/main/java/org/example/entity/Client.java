@@ -2,6 +2,7 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 @Data
 @Entity
@@ -13,6 +14,7 @@ public class Client {
     private Integer id;
 
     @Column
+    @Length(min = 3, max = 200)
     private String name;
 
 }

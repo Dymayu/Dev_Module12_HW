@@ -61,8 +61,8 @@ public class Main {
         // Update planet - NPT
     //    planetCrudService.update(preparePlanet("NPT", "UpdTest"));
         // Get planet by ID - VNS
-    //    Planet planetById = planetCrudService.getPlanetById("VNS");
-    //    System.out.println("Planet By ID = " + planetById);
+        Planet planetById = planetCrudService.getPlanetById("VNS");
+        System.out.println("Planet By ID = " + planetById);
         // Get all planets
     //    List<Planet> allPlanets = planetCrudService.getAllPlanets();
     //    allPlanets.forEach(planet -> System.out.println("planet = " + planet));
