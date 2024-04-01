@@ -1,0 +1,21 @@
+Create table IF NOT EXISTS spacetravel.client (
+ID int AUTO_INCREMENT,
+NAME varchar (200) NOT NULL,
+PRIMARY KEY (ID),
+CONSTRAINT CHK_CL_NAMELEN CHECK (CHAR_LENGTH(NAME) >= 3 AND CHAR_LENGTH(NAME) <= 200)
+);
+Create table IF NOT EXISTS spacetravel.planet (
+ID varchar (255) NOT NULL,
+NAME varchar (255) NOT NULL,
+PRIMARY KEY (ID),
+CONSTRAINT CHK_PL_NAMELEN CHECK (CHAR_LENGTH(NAME) >= 1 AND CHAR_LENGTH(NAME) <= 500),
+CONSTRAINT force_upper_case CHECK(BINARY ID = UPPER(ID))
+);
+CREATE table IF NOT EXISTS spacetravel.ticket (
+ID int AUTO_INCREMENT,
+CREATED_AT TIMESTAMP,
+CLIENT_ID int REFERENCES spacetravel.client(ID),
+FROM_PLANET_ID varchar (255) REFERENCES spacetravel.planet(ID),
+TO_PLANET_ID varchar (255)REFERENCES spacetravel.planet(ID),
+PRIMARY KEY (ID)
+);
